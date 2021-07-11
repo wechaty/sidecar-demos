@@ -1,23 +1,25 @@
-# wechat-sidecar
+# sidecar-demos
 
 Wechaty community sidecar demos.
 
 [![Sidecar WeChat 3.2.1.121](https://img.shields.io/badge/Sidecar-WeChat%203.2.1.121-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121)
 
-WeChat Sidecar can intercepting function calls or messages or events passed between your Node.js application and any other software components.
+A sidecar can intercepting function calls or messages or events passed between your Node.js application and any instant messaging software components.
 
 Branches:
 
 - [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121)
 - WeCom Sidecar (TBA)
 
+## Requirements
+
+1. Node.js >= 10
+
 ## Install
 
-### 1. WeChat Sidecar
-
 ```sh
-git clone https://github.com/huan/wechat-sidecar.git
-cd wechat-sidecar
+git clone https://github.com/wechaty/sidecar-demos.git
+cd sidecar-demos
 npm install
 ```
 
