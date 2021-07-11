@@ -4,7 +4,7 @@ A Sidecar Demo for WeChat 3.2.1.121
 
 ## WeChat Sidecar
 
-Learn more about Sidecar from <https://github.com/huan/sidecar>
+WeChat Sidecar can intercepting function calls or messages or events passed between your Node.js application and WeChat software components.
 
 ## Install
 
@@ -18,15 +18,19 @@ npm install
 
 ### 2. WeChat 3.2.1.121
 
-Download from <https://pan.baidu.com/share/init?surl=IHRM2OMvrLyuCz5MRbigGg> with code: `cscn`, then install WeChat 3.2.1.121
+Download WeChat 3.2.1.121 and install it.
+
+> Here's a [download link (with code: `cscn`)](https://pan.baidu.com/share/init?surl=IHRM2OMvrLyuCz5MRbigGg) for you.
 
 ## Usage
+
+First, you need to launch the WeChat and login your account. After your account has been logged in:
 
 ```sh
 npm start
 ```
 
-Then your WeChat account will reply `dong` when it receives a `ding` message.
+Then your WeChat account will be able to reply `dong` automatically when receives a message with text `ding`.
 
 ## History
 
@@ -36,6 +40,10 @@ Then your WeChat account will reply `dong` when it receives a `ding` message.
 
 1. First release
 1. Powered by [Sidecar](https://github.com/huan/sidecar)
+
+## Special thanks
+
+[老张学技术](https://github.com/cixingguangming55555/wechat-bot) is a great example of WeChat bot.
 
 ## Author
 
