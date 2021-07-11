@@ -1,10 +1,15 @@
 # wechat-sidecar
 
-A Sidecar Demo for WeChat 3.2.1.121
+Wechaty community sidecar demos.
 
-## WeChat Sidecar
+[![Sidecar WeChat 3.2.1.121](https://img.shields.io/badge/Sidecar-WeChat%203.2.1.121-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121)
 
-WeChat Sidecar can intercepting function calls or messages or events passed between your Node.js application and WeChat software components.
+WeChat Sidecar can intercepting function calls or messages or events passed between your Node.js application and any other software components.
+
+Branches:
+
+- [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121)
+- WeCom Sidecar (TBA)
 
 ## Install
 
@@ -16,21 +21,15 @@ cd wechat-sidecar
 npm install
 ```
 
-### 2. WeChat 3.2.1.121
-
-Download WeChat 3.2.1.121 and install it.
-
-> Here's a [download link (with code: `cscn`)](https://pan.baidu.com/share/init?surl=IHRM2OMvrLyuCz5MRbigGg) for you.
-
 ## Usage
 
-First, you need to launch the WeChat and login your account. After your account has been logged in:
+First, you need to launch the application which you want to attach the sidecar. After your account has been logged in:
 
 ```sh
 npm start
 ```
 
-Then your WeChat account will be able to reply `dong` automatically when receives a message with text `ding`.
+Then your account will be able to reply `dong` automatically when receives a message with text `ding`.
 
 ## History
 
@@ -40,10 +39,11 @@ Then your WeChat account will be able to reply `dong` automatically when receive
 
 1. First release
 1. Powered by [Sidecar](https://github.com/huan/sidecar)
+1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121) released
 
 ## Special thanks
 
-[老张学技术](https://github.com/cixingguangming55555/wechat-bot) is a great example of WeChat bot.
+1. Thanks to @cixingguangming55555 who is a hacker and chatbot hard core fan. He created and shared [老张学技术](https://github.com/cixingguangming55555/wechat-bot) to the chatbot developers' community which is a great source of knowledge.
 
 ## Author
 
