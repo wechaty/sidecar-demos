@@ -13,6 +13,7 @@ WeChat Sidecar can intercepting function calls or messages or events passed betw
 ```sh
 git clone https://github.com/huan/wechat-sidecar.git
 cd wechat-sidecar
+git checkout wechat-3.2.1.121
 npm install
 ```
 
