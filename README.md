@@ -2,6 +2,8 @@
 
 A Sidecar Demo for WeChat 3.2.1.121
 
+[![Powered by Sidecar](https://img.shields.io/badge/Powered%20By-Sidecar-red.svg)](https://github.com/huan/sidecar)
+
 ## WeChat Sidecar
 
 WeChat Sidecar can intercepting function calls or messages or events passed between your Node.js application and WeChat software components.
