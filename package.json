@@ -4,6 +4,9 @@
   "description": "A WeChat Sidecar Demo for WeChat 3.2.1.121",
   "main": "index.js",
   "scripts": {
+    "lint": "npm run lint:es && npm run lint:ts",
+    "lint:ts": "tsc --noEmit",
+    "lint:es": "eslint --ignore-pattern fixtures/ \"src/**/*.ts\"",
     "start": "ts-node src/main.ts",
     "test": "echo test"
   },
