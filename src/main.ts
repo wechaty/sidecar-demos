@@ -49,9 +49,7 @@ async function main () {
 
   })
 
-  const clean = async () => {
-    await detach(sidecar)
-  }
+  const clean = () => detach(sidecar)
 
   process.on('SIGINT',  clean)
   process.on('SIGTERM', clean)
