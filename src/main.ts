@@ -41,7 +41,7 @@ async function main () {
     const text      = args[1] as string
 
     /**
-     * The world's famouus ding-dong bot.
+     * The world's famous ding-dong bot.
      */
     if (talkerId && text === 'ding') {
       await sidecar.sendMsg(talkerId, 'dong')
@@ -49,9 +49,7 @@ async function main () {
 
   })
 
-  const clean = async () => {
-    await detach(sidecar)
-  }
+  const clean = () => detach(sidecar)
 
   process.on('SIGINT',  clean)
   process.on('SIGTERM', clean)
