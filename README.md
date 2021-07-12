@@ -44,10 +44,13 @@ Then your WeChat account will be able to reply `dong` automatically when receive
 1. First release
 1. Powered by [Sidecar](https://github.com/huan/sidecar)
 
+## Resources
+
+- [微信 get log messages](https://www.bilibili.com/video/av332292647)
+
 ## Special thanks
 
-- [老张学技术](https://github.com/cixingguangming55555/wechat-bot) is a great example of WeChat bot.
-- [微信 3.1.0.72 - log messages](https://www.bilibili.com/video/av332292647)
+[老张学技术](https://github.com/cixingguangming55555/wechat-bot) is a great example of WeChat bot.
 
 ## Author
 
