@@ -13,83 +13,92 @@
  /**
   * @Hook: recvMsg -> agentRecvMsgNativeCallback
   */
- const agentRecvMsgNativeCallback = new NativeCallback(() => {}, 'void', ['pointer', 'pointer'])
- const agentRecvMsgNativeFunction = new NativeFunction(agentRecvMsgNativeCallback, 'void', ['pointer', 'pointer'])
+const agentRecvMsgNativeCallback = (() => {
+  const nativeCallback      = new NativeCallback(() => {}, 'void', ['pointer', 'pointer'])
+  const nativeativeFunction = new NativeFunction(agentRecvMsgNativeCallback, 'void', ['pointer', 'pointer'])
 
- Interceptor.attach(
-   moduleBaseAddress.add(0x3de6fd),
-   {
-     onEnter() {
-       const addr = this.context.ebp.sub(0xc14)
+  Interceptor.attach(
+    moduleBaseAddress.add(0x3de6fd),
+    {
+      onEnter() {
+        const addr = this.context.ebp.sub(0xc14)
 
-       const wxidPtr = addr.add(0x40).readPointer()
-       const contentPtr = addr.add(0x68).readPointer()
+        const talkerIdPtr = addr.add(0x40).readPointer()
+        const contentPtr  = addr.add(0x68).readPointer()
 
-       setImmediate(() => agentRecvMsgNativeFunction(wxidPtr, contentPtr))
-     }
- })
+        setImmediate(() => nativeativeFunction(talkerIdPtr, contentPtr))
+      }
+  })
+  return nativeCallback
+})()
 
- /**
-  * @Call: sendMsg -> agentSendMsg
-  */
- const buff = Memory.alloc(0x5a8)
- const sendMsgAsm = Memory.alloc(Process.pageSize)
+/**
+ * @Call: sendMsg -> agentSendMsg
+ */
+const agentSendMsgNativeFunction = (() => {
+  const buff        = Memory.alloc(0x5a8) // magic number from wechat-bot (laozhang)
+  const sendMsgAsm  = Memory.alloc(Process.pageSize)
 
- Memory.patchCode(sendMsgAsm, Process.pageSize, function (code) {
-   var cw = new X86Writer(code, { pc: sendMsgAsm })
+  Memory.patchCode(sendMsgAsm, Process.pageSize, code => {
+    var cw = new X86Writer(code, { pc: sendMsgAsm })
 
-   cw.putPushReg('ebp')
-   cw.putMovRegReg('ebp', 'esp')
-   cw.putPushax()
-   cw.putPushfx()
+    cw.putPushReg('ebp')
+    cw.putMovRegReg('ebp', 'esp')
+    cw.putPushax()
+    cw.putPushfx()
 
-   cw.putPushU32(1)  // push
-   cw.putPushU32(0)  // push
+    cw.putPushU32(1)  // push
+    cw.putPushU32(0)  // push
 
-   cw.putMovRegRegOffsetPtr('ebx', 'ebp', 0xc) // arg 1
-   cw.putPushReg('ebx')  // push
+    cw.putMovRegRegOffsetPtr('ebx', 'ebp', 0xc) // arg 1
+    cw.putPushReg('ebx')  // push
 
-   cw.putMovRegRegOffsetPtr('edx', 'ebp', 0x8) // arg 0
-   cw.putMovRegAddress('ecx', buff)
+    cw.putMovRegRegOffsetPtr('edx', 'ebp', 0x8) // arg 0
+    cw.putMovRegAddress('ecx', buff)
 
-   cw.putCallAddress(moduleBaseAddress.add(
-     0x3b56a0
-   ))
-   cw.putAddRegImm('esp', 0xc)
+    cw.putCallAddress(moduleBaseAddress.add(
+      0x3b56a0
+    ))
+    cw.putAddRegImm('esp', 0xc)
 
-   cw.putPopfx()
-   cw.putPopax()
-   cw.putMovRegRegPtr('esp', 'ebp') // Huan(202107): why use RegRegPtr? (RegRet will fail)
-   cw.putPopReg('ebp')
-   cw.putRet()
+    cw.putPopfx()
+    cw.putPopax()
+    cw.putMovRegRegPtr('esp', 'ebp') // Huan(202107): why use RegRegPtr? (RegRet will fail)
+    cw.putPopReg('ebp')
+    cw.putRet()
 
-   cw.flush()
- })
+    cw.flush()
+  })
 
- const sendMsgNativeFunction = new NativeFunction(sendMsgAsm, 'void', ['pointer', 'pointer'])
+  const asmNativeFunction = new NativeFunction(sendMsgAsm, 'void', ['pointer', 'pointer'])
+  const nativeCallback    = new NativeCallback(sendMsgCallback, 'void', ['pointer', 'pointer'])
+  const nativeFunction    = new NativeFunction(nativeCallback, 'void', ['pointer', 'pointer'])
 
- function agentSendMsg (
-   contactId,
-   text,
- ) {
-   const wxIdBuf = Memory.allocUtf16String(contactId)
-   const textBuf = Memory.allocUtf16String(text)
+  function sendMsgCallback (
+    talkerIdPtr,
+    contentPtr,
+  ) {
+    const talkerId  = talkerIdPtr.readUtf16String()
+    const content   = contentPtr.readUtf16String()
 
-   const sizeOfStringStruct = Process.pointerSize * 3 // + 0xd
+    const sizeOfStringStruct = Process.pointerSize * 3 // + 0xd
 
-   // allocate space for the struct
-   const wxIdStruct = Memory.alloc(sizeOfStringStruct) // returns a NativePointer
-   const wxTextStruct = Memory.alloc(sizeOfStringStruct) // returns a NativePointer
+    // allocate space for the struct
+    const talkerIdStruct  = Memory.alloc(sizeOfStringStruct) // returns a NativePointer
+    const contentStruct   = Memory.alloc(sizeOfStringStruct) // returns a NativePointer
 
-   wxIdStruct
-   .writePointer(wxIdBuf).add(0x4)
-   .writeU32(contactId.length).add(0x4)
-   .writeU32(contactId.length * 2)
+    talkerIdStruct
+    .writePointer(talkerIdPtr).add(0x4)
+    .writeU32(talkerId.length).add(0x4)
+    .writeU32(talkerId.length * 2)
 
-   wxTextStruct
-   .writePointer(textBuf).add(0x4)
-   .writeU32(text.length).add(0x4)
-   .writeU32(text.length * 2)
+    contentStruct
+    .writePointer(contentPtr).add(0x4)
+    .writeU32(content.length).add(0x4)
+    .writeU32(content.length * 2)
 
-   sendMsgNativeFunction(wxIdStruct, wxTextStruct)
- }
+    asmNativeFunction(talkerIdStruct, contentStruct)
+  }
+
+  return nativeFunction
+})()
