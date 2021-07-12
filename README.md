@@ -46,7 +46,8 @@ Then your WeChat account will be able to reply `dong` automatically when receive
 
 ## Special thanks
 
-[老张学技术](https://github.com/cixingguangming55555/wechat-bot) is a great example of WeChat bot.
+- [老张学技术](https://github.com/cixingguangming55555/wechat-bot) is a great example of WeChat bot.
+- [微信 3.1.0.72 - log messages](https://www.bilibili.com/video/av332292647)
 
 ## Author
 
