@@ -11,11 +11,11 @@
  const moduleBaseAddress = Module.getBaseAddress('WeChatWin.dll')
 
  /**
-  * @Hook: recvMsg -> agentRecvMsgNativeCallback
+  * @Hook: recvMsg -> recvMsgNativeCallback
   */
 const recvMsgNativeCallback = (() => {
   const nativeCallback      = new NativeCallback(() => {}, 'void', ['pointer', 'pointer'])
-  const nativeativeFunction = new NativeFunction(agentRecvMsgNativeCallback, 'void', ['pointer', 'pointer'])
+  const nativeativeFunction = new NativeFunction(nativeCallback, 'void', ['pointer', 'pointer'])
 
   Interceptor.attach(
     moduleBaseAddress.add(0x3de6fd),
