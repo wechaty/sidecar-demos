@@ -13,7 +13,7 @@
  /**
   * @Hook: recvMsg -> agentRecvMsgNativeCallback
   */
-const agentRecvMsgNativeCallback = (() => {
+const recvMsgNativeCallback = (() => {
   const nativeCallback      = new NativeCallback(() => {}, 'void', ['pointer', 'pointer'])
   const nativeativeFunction = new NativeFunction(agentRecvMsgNativeCallback, 'void', ['pointer', 'pointer'])
 
@@ -35,7 +35,7 @@ const agentRecvMsgNativeCallback = (() => {
 /**
  * @Call: sendMsg -> agentSendMsg
  */
-const agentSendMsgNativeFunction = (() => {
+const sendMsgNativeFunction = (() => {
   const buff        = Memory.alloc(0x5a8) // magic number from wechat-bot (laozhang)
   const sendMsgAsm  = Memory.alloc(Process.pageSize)
 
