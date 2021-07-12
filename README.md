@@ -2,14 +2,14 @@
 
 Wechaty community sidecar demos.
 
-[![Sidecar WeChat 3.2.1.121](https://img.shields.io/badge/Sidecar-WeChat%203.2.1.121-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121)
+[![Sidecar WeChat Win32 X86 3.2.1.121](https://img.shields.io/badge/Sidecar-WeChat%203.2.1.121-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 [![Powered by Sidecar](https://img.shields.io/badge/Powered%20By-Sidecar-red.svg)](https://github.com/huan/sidecar)
 
 A sidecar can intercepting function calls or messages or events passed between your Node.js application and any instant messaging software components.
 
 Branches:
 
-- [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121)
+- [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 - WeCom Sidecar (TBA)
 
 ## Requirements
@@ -42,7 +42,7 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 1. First release
 1. Powered by [Sidecar](https://github.com/huan/sidecar)
-1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-3.2.1.121) released
+1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121) released
 
 ## Special thanks
 
