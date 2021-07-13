@@ -21,12 +21,12 @@ import {
   detach,
 }           from 'frida-sidecar'
 
-import { WeChatSidecar } from './wechat-sidecar'
+import { WeComSidecar } from './wecom-sidecar'
 
 async function main () {
   console.log('WeChat Sidecar starting...')
 
-  const sidecar = new WeChatSidecar()
+  const sidecar = new WeComSidecar()
   await attach(sidecar)
 
   console.log('WeChat Sidecar started.')

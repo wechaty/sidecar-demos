@@ -35,7 +35,7 @@ const initAgentScript = fs.readFileSync(require.resolve(
 )).toString()
 
 @Sidecar('WXWork.exe', initAgentScript)
-class WeChatSidecar extends SidecarBody {
+class WeComSidecar extends SidecarBody {
 
   @Call(agentTarget('agentSendMsg'))
   @RetType('void')
@@ -52,4 +52,4 @@ class WeChatSidecar extends SidecarBody {
 
 }
 
-export { WeChatSidecar }
+export { WeComSidecar }
