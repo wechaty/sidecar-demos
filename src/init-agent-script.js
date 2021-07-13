@@ -70,6 +70,12 @@ const sendMsgNativeFunction = (() => {
     cw.flush()
   })
 
+  let ins = Instruction.parse(asmSendMsg)
+  for (let i=0; i<20; i++) {
+    console.log(ins.address, '\t', ins.mnemonic, '\t', ins.opStr)
+    ins = Instruction.parse(ins.next)
+  }
+  
   const asmNativeFunction = new NativeFunction(asmSendMsg, 'void', ['pointer', 'pointer'])
 
   const sendMsg = (
