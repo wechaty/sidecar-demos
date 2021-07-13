@@ -38,11 +38,18 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ### master
 
+### 0.2 (Jun 14, 2021)
+
+1. [WeCom Sidecar 3.1.6.3605](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.1.6.3605)
+
+### 0.1 (Jun 13, 2021)
+
+1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
+
 ### 0.0.1 (Jun 12, 2021)
 
 1. First release
 1. Powered by [Sidecar](https://github.com/huan/sidecar)
-1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121) released
 
 ## Special thanks
 

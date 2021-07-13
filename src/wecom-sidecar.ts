@@ -34,15 +34,15 @@ const initAgentScript = fs.readFileSync(require.resolve(
   './init-agent-script.js'
 )).toString()
 
-@Sidecar('WeChat.exe', initAgentScript)
+@Sidecar('WXWork.exe', initAgentScript)
 class WeChatSidecar extends SidecarBody {
 
   @Call(agentTarget('agentSendMsg'))
   @RetType('void')
   sendMsg (
-    @ParamType('pointer', 'Utf16String') contactId: string,
-    @ParamType('pointer', 'Utf16String') text: string,
-  ): Promise<string> { return Ret(contactId, text) }
+  // @ParamType('pointer', 'Utf16String') contactId: string,
+  // @ParamType('pointer', 'Utf16String') text: string,
+  ): Promise<void> { return Ret() }
 
   @Hook(agentTarget('agentRecvMsgNativeCallback'))
   recvMsg (

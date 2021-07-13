@@ -5,7 +5,10 @@ const rules = {
 const globals = {
   Interceptor: true,
   Memory: true,
+  Module: true,
+  Process: true,
   NativeFunction: true,
+  X86Writer: true,
   ptr: true,
   rpc: true,
   send: true,
