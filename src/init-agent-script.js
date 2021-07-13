@@ -36,11 +36,11 @@ const recvMsgNativeCallback = (() => {
  * @Call: sendMsg -> agentSendMsg
  */
 const sendMsgNativeFunction = (() => {
-  const buff        = Memory.alloc(0x5a8) // magic number from wechat-bot (laozhang)
-  const sendMsgAsm  = Memory.alloc(Process.pageSize)
+  const asmBuffer   = Memory.alloc(0x5a8) // magic number from wechat-bot (laozhang)
+  const asmSendMsg  = Memory.alloc(Process.pageSize)
 
-  Memory.patchCode(sendMsgAsm, Process.pageSize, code => {
-    var cw = new X86Writer(code, { pc: sendMsgAsm })
+  Memory.patchCode(asmSendMsg, Process.pageSize, code => {
+    var cw = new X86Writer(code, { pc: asmSendMsg })
 
     cw.putPushReg('ebp')
     cw.putMovRegReg('ebp', 'esp')
@@ -54,7 +54,7 @@ const sendMsgNativeFunction = (() => {
     cw.putPushReg('ebx')  // push
 
     cw.putMovRegRegOffsetPtr('edx', 'ebp', 0x8) // arg 0
-    cw.putMovRegAddress('ecx', buff)
+    cw.putMovRegAddress('ecx', asmBuffer)
 
     cw.putCallAddress(moduleBaseAddress.add(
       0x3b56a0
@@ -70,14 +70,12 @@ const sendMsgNativeFunction = (() => {
     cw.flush()
   })
 
-  const asmNativeFunction = new NativeFunction(sendMsgAsm, 'void', ['pointer', 'pointer'])
-  const nativeCallback    = new NativeCallback(sendMsgCallback, 'void', ['pointer', 'pointer'])
-  const nativeFunction    = new NativeFunction(nativeCallback, 'void', ['pointer', 'pointer'])
+  const asmNativeFunction = new NativeFunction(asmSendMsg, 'void', ['pointer', 'pointer'])
 
-  function sendMsgCallback (
+  const sendMsg = (
     talkerIdPtr,
     contentPtr,
-  ) {
+  ) => {
     const talkerId  = talkerIdPtr.readUtf16String()
     const content   = contentPtr.readUtf16String()
 
@@ -100,5 +98,22 @@ const sendMsgNativeFunction = (() => {
     asmNativeFunction(talkerIdStruct, contentStruct)
   }
 
-  return nativeFunction
+  /**
+   * Best Practices
+   *  https://frida.re/docs/best-practices/
+   *
+   * There is however a pitfall: the value returned by Memory.allocUtf8String() must be kept alive
+   *  – it gets freed as soon as the JavaScript value gets garbage-collected.
+   *
+   * This means it needs to be kept alive for at least the duration of the function-call,
+   *  and in some cases even longer; the exact semantics depend on how the API was designed.
+   */
+  const refHolder = {
+    asmBuffer,
+    asmSendMsg,
+    asmNativeFunction,
+    sendMsg,
+  }
+
+  return (...args) => refHolder.sendMsg(...args)
 })()
