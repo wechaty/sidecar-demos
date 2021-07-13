@@ -37,14 +37,14 @@ const initAgentScript = fs.readFileSync(require.resolve(
 @Sidecar('WXWork.exe', initAgentScript)
 class WeComSidecar extends SidecarBody {
 
-  @Call(agentTarget('agentSendMsg'))
+  @Call(agentTarget('sendMsg'))
   @RetType('void')
   sendMsg (
   // @ParamType('pointer', 'Utf16String') contactId: string,
   // @ParamType('pointer', 'Utf16String') text: string,
   ): Promise<void> { return Ret() }
 
-  @Hook(agentTarget('agentRecvMsgNativeCallback'))
+  @Hook(agentTarget('recvMsgNativeCallback'))
   recvMsg (
     @ParamType('pointer', 'Utf16String') contactId: string,
     @ParamType('pointer', 'Utf16String') text: string,
