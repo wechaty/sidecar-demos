@@ -44,7 +44,8 @@ async function main () {
      * The world's famous ding-dong bot.
      */
     if (talkerId && text === 'ding') {
-      await sidecar.sendMsg(talkerId, 'dong')
+      await sidecar.sendMsg()
+      // talkerId, 'dong'
     }
 
   })
