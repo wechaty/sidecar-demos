@@ -111,6 +111,12 @@ const sendMsg = () => {
     cw.flush()
   })
 
+  let ins = Instruction.parse(impl1)
+  for (let i=0; i<20; i++) {
+    console.log(ins.address, '\t', ins.mnemonic, '\t', ins.opStr)
+    ins = Instruction.parse(ins.next)
+  }
+
   const impl1NativeFunction = new NativeFunction(impl1, 'void', [])
   impl1NativeFunction()
 
