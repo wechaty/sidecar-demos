@@ -7,10 +7,13 @@ Wechaty community sidecar demos.
 
 A sidecar can intercepting function calls or messages or events passed between your Node.js application and any instant messaging software components.
 
-Branches:
+## Branches
+
+We are using different branches for different sidecar target application demos:
 
 - [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 - WeCom Sidecar (TBA)
+- [Factorial C Library (WIP)](https://github.com/wechaty/sidecar-demos/tree/factorial-linux-x64-library)
 
 ## Requirements
 
@@ -45,6 +48,10 @@ Then your account will be able to reply `dong` automatically when receives a mes
 ## History
 
 ### master
+
+### 0.3 (Jul 17, 2021)
+
+1. [Factorial C Library Sidecar](https://github.com/wechaty/sidecar-demos/tree/factorial-linux-x64-library)
 
 ### 0.2 (Jun 14, 2021)
 
