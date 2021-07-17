@@ -34,6 +34,14 @@ npm start
 
 Then your account will be able to reply `dong` automatically when receives a message with text `ding`.
 
+## To-do list
+
+- [ ] WeCom Android
+  - [wecom android](https://github.com/edxposedd/wework)
+- [ ] WeChat Mac
+- [ ] WeCom Windows
+  - [3.0.27.2701](https://github.com/smallevilbeast/wxwork_pc_api)
+
 ## History
 
 ### master
