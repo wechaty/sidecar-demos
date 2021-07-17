@@ -20,36 +20,32 @@ import {
   Sidecar,
   SidecarBody,
   Call,
-  Hook,
   ParamType,
   RetType,
   Ret,
 
-  agentTarget,
+  exportTarget,
 }                 from 'frida-sidecar'
+import path       from 'path'
 
-import fs from 'fs'
+const libFile = path.join(
+  __dirname,
+  'libfactorial.so',
+)
 
-const initAgentScript = fs.readFileSync(require.resolve(
-  './init-agent-script.js'
-)).toString()
+const initAgentScript = `
+  Module.load('${libFile}')
+`
 
-@Sidecar('WXWork.exe', initAgentScript)
-class WeComSidecar extends SidecarBody {
+@Sidecar('cat', initAgentScript)
+class FactorialSidecar extends SidecarBody {
 
-  @Call(agentTarget('sendMsg'))
-  @RetType('void')
-  sendMsg (
-  // @ParamType('pointer', 'Utf16String') contactId: string,
-  // @ParamType('pointer', 'Utf16String') text: string,
-  ): Promise<void> { return Ret() }
-
-  @Hook(agentTarget('recvMsgNativeCallback'))
-  recvMsg (
-    @ParamType('pointer', 'Utf16String') contactId: string,
-    @ParamType('pointer', 'Utf16String') text: string,
-  ) { return Ret(contactId, text) }
+  @Call(exportTarget('factorial', 'libfactorial.so'))
+  @RetType('uint64')
+  factorial (
+    @ParamType('int') n: number,
+  ): Promise<number> { return Ret(n) }
 
 }
 
-export { WeComSidecar }
+export { FactorialSidecar }

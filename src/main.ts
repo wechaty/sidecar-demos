@@ -21,39 +21,27 @@ import {
   detach,
 }           from 'frida-sidecar'
 
-import { WeComSidecar } from './wecom-sidecar'
+import assert from 'assert'
+
+import { FactorialSidecar } from './factorial-sidecar'
 
 async function main () {
-  console.log('WeChat Sidecar starting...')
+  const sidecar = new FactorialSidecar()
 
-  const sidecar = new WeComSidecar()
+  console.log('Factorial Sidecar starting...')
   await attach(sidecar)
+  console.log('Factorial Sidecar started.')
 
-  console.log('WeChat Sidecar started.')
-
-  sidecar.on('recvMsg', async args => {
-    if (args instanceof Error) {
-      console.error(args)
-      return
-    }
-    console.log('recvMsg args:', args)
-    const talkerId  = args[0] as string
-    const text      = args[1] as string
-
-    /**
-     * The world's famous ding-dong bot.
-     */
-    if (talkerId && text === 'ding') {
-      await sidecar.sendMsg()
-      // talkerId, 'dong'
-    }
-
-  })
-
-  const clean = () => detach(sidecar)
-
-  process.on('SIGINT',  clean)
-  process.on('SIGTERM', clean)
+  try {
+    // void assert
+    const result = await sidecar.factorial(3)
+    console.log('Factorial Sidecar: factorial(3) =', result, typeof result)
+    assert(result === 6, 'should get factorial(3) === 6')
+  } finally {
+    const clean = () => detach(sidecar)
+    process.on('SIGINT',  clean)
+    process.on('SIGTERM', clean)
+  }
 }
 
 main()
