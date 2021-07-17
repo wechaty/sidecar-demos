@@ -1,5 +1,5 @@
 {
-  "name": "im-sidecar-demos",
+  "name": "sidecar-demos",
   "version": "0.2.3",
   "description": "IM Sidecar Demos",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:ts": "tsc --noEmit",
     "lint:es": "eslint --ignore-pattern fixtures/ \"src/**/*.ts\"",
-    "start": "ts-node src/main.ts",
+    "start": "NODE_OPTIONS='--unhandled-rejections=strict' ts-node src/main.ts",
     "test": "echo test"
   },
   "repository": {
