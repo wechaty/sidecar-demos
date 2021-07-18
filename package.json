@@ -7,7 +7,7 @@
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:ts": "tsc --noEmit",
     "lint:es": "eslint --ignore-pattern fixtures/ \"src/**/*.ts\"",
-    "start": "NODE_OPTIONS='--unhandled-rejections=strict' ts-node src/main.ts",
+    "start": "cross-env NODE_OPTIONS='--unhandled-rejections=strict' ts-node src/main.ts",
     "test": "echo test"
   },
   "repository": {
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@chatie/eslint-config": "^0.12.4",
     "@chatie/git-scripts": "^0.6.2",
-    "@chatie/tsconfig": "^0.16.2"
+    "@chatie/tsconfig": "^0.16.2",
+    "cross-env": "^7.0.3"
   }
 }
