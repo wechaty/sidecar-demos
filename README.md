@@ -53,11 +53,14 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ## History
 
-### master
+### master v0.6
 
-### v0.4 (Jul 19, 2021)
+### v0.5 (Jul 19, 2021)
 
 1. [Windows DLL(x86) Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
+
+### v0.4 (Jul 18, 2021)
+
 1. [Windows DLL(x64) Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
 
 ### 0.3 (Jul 17, 2021)
