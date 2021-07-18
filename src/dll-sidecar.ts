@@ -16,7 +16,7 @@
  *   limitations under the License.
  *
  */
-import {
+ import {
   Sidecar,
   SidecarBody,
   Call,
@@ -32,13 +32,14 @@ import path from 'path'
  * Factorial Library
  *  See: https://github.com/huan/ffi-adapter/tree/master/tests/fixtures/library
  */
-const dllFile = path.join(
+const dllFile = 'factorial-x64.dll'
+const dllPath = path.join(
   __dirname,
-  'factorial.dll',
-)
+  dllFile,
+).replace(/\\/g, '\\\\')
 
 const initAgentScript = `
-  Module.load('${dllFile}')
+  Module.load('${dllPath}')
 `
 
 @Sidecar(
@@ -47,7 +48,7 @@ const initAgentScript = `
 )
 class DllSidecar extends SidecarBody {
 
-  @Call(exportTarget('factorial', 'factorial.dll'))
+  @Call(exportTarget('factorial', dllFile))
   @RetType('uint64')
   factorial (
     @ParamType('int') n: number,
