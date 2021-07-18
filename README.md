@@ -15,7 +15,7 @@ We are using different branches for different sidecar target application demos:
 
 - [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 - [.so Sidecar](https://github.com/wechaty/sidecar-demos/tree/so-linux-x64-library)
-- [.dll Sidecar (WIP)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
+- [.dll(x86) Sidecar (WIP)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 - WeCom Sidecar (TBA)
 
 ## Requirements
@@ -54,7 +54,7 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ### v0.4 (Juil 19, 2021)
 
-1. [.dll Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
+1. [.dll(x86) Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 
 ### v0.3 (Jul 17, 2021)
 
