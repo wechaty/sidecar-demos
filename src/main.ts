@@ -32,16 +32,16 @@ async function main () {
   await attach(sidecar)
   console.log('Factorial Sidecar started.')
 
-  try {
-    // void assert
-    const result = await sidecar.factorial(3)
-    console.log('Factorial Sidecar: factorial(3) =', result, typeof result)
-    assert(result === 6, 'should get factorial(3) === 6')
-  } finally {
-    const clean = () => detach(sidecar)
-    process.on('SIGINT',  clean)
-    process.on('SIGTERM', clean)
-  }
+  const result = await sidecar.factorial(3)
+  assert(result === 6, 'should get factorial(3) === 6')
+
+  console.log('Factorial Sidecar: factorial(3) =', result)
+
+  const clean = () => detach(sidecar)
+  process.on('SIGINT',  clean)
+  process.on('SIGTERM', clean)
+
+  await detach(sidecar)
 }
 
 main()

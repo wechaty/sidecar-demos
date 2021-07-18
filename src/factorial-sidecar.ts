@@ -28,6 +28,10 @@ import {
 }                 from 'frida-sidecar'
 import path       from 'path'
 
+/**
+ * Factorial Library
+ *  See: https://github.com/huan/ffi-adapter/tree/master/tests/fixtures/library
+ */
 const libFile = path.join(
   __dirname,
   'libfactorial.so',
@@ -37,7 +41,10 @@ const initAgentScript = `
   Module.load('${libFile}')
 `
 
-@Sidecar('cat', initAgentScript)
+@Sidecar(
+  ['/bin/sleep', ['60']],
+  initAgentScript,
+)
 class FactorialSidecar extends SidecarBody {
 
   @Call(exportTarget('factorial', 'libfactorial.so'))
