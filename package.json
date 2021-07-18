@@ -1,7 +1,7 @@
 {
   "name": "sidecar-demos",
-  "version": "0.2.7",
-  "description": "IM Sidecar Demos",
+  "version": "0.4.0",
+  "description": "Sidecar Demos",
   "main": "index.js",
   "scripts": {
     "lint": "npm run lint:es && npm run lint:ts",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/huan/wechat-sidecar#readme",
   "dependencies": {
-    "frida-sidecar": "^0.8.4"
+    "frida-sidecar": "^0.9.2"
   },
   "git": {
     "scripts": {

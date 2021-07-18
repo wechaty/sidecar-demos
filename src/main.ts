@@ -21,39 +21,27 @@ import {
   detach,
 }           from 'frida-sidecar'
 
-import { WeComSidecar } from './wecom-sidecar'
+import assert from 'assert'
+
+import { DllSidecar } from './dll-sidecar'
 
 async function main () {
-  console.log('WeChat Sidecar starting...')
+  const sidecar = new DllSidecar()
 
-  const sidecar = new WeComSidecar()
+  console.log('Factorial Sidecar starting...')
   await attach(sidecar)
+  console.log('Factorial Sidecar started.')
 
-  console.log('WeChat Sidecar started.')
+  const result = await sidecar.factorial(3)
+  assert(result === 6, 'should get factorial(3) === 6')
 
-  sidecar.on('recvMsg', async args => {
-    if (args instanceof Error) {
-      console.error(args)
-      return
-    }
-    console.log('recvMsg args:', args)
-    const talkerId  = args[0] as string
-    const text      = args[1] as string
-
-    /**
-     * The world's famous ding-dong bot.
-     */
-    if (talkerId && text === 'ding') {
-      await sidecar.sendMsg()
-      // talkerId, 'dong'
-    }
-
-  })
+  console.log('Factorial Sidecar: factorial(3) =', result)
 
   const clean = () => detach(sidecar)
-
   process.on('SIGINT',  clean)
   process.on('SIGTERM', clean)
+
+  await detach(sidecar)
 }
 
 main()

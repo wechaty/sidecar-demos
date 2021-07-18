@@ -20,36 +20,39 @@ import {
   Sidecar,
   SidecarBody,
   Call,
-  Hook,
   ParamType,
   RetType,
   Ret,
-
-  agentTarget,
+  exportTarget,
 }                 from 'frida-sidecar'
 
-import fs from 'fs'
+import path from 'path'
 
-const initAgentScript = fs.readFileSync(require.resolve(
-  './init-agent-script.js'
-)).toString()
+/**
+ * Factorial Library
+ *  See: https://github.com/huan/ffi-adapter/tree/master/tests/fixtures/library
+ */
+const dllFile = path.join(
+  __dirname,
+  'factorial.dll',
+)
 
-@Sidecar('WXWork.exe', initAgentScript)
-class WeComSidecar extends SidecarBody {
+const initAgentScript = `
+  Module.load('${dllFile}')
+`
 
-  @Call(agentTarget('sendMsg'))
-  @RetType('void')
-  sendMsg (
-  // @ParamType('pointer', 'Utf16String') contactId: string,
-  // @ParamType('pointer', 'Utf16String') text: string,
-  ): Promise<void> { return Ret() }
+@Sidecar(
+  ['C:\\Windows\\notepad.exe'],
+  initAgentScript,
+)
+class DllSidecar extends SidecarBody {
 
-  @Hook(agentTarget('recvMsgNativeCallback'))
-  recvMsg (
-    @ParamType('pointer', 'Utf16String') contactId: string,
-    @ParamType('pointer', 'Utf16String') text: string,
-  ) { return Ret(contactId, text) }
+  @Call(exportTarget('factorial', 'factorial.dll'))
+  @RetType('uint64')
+  factorial (
+    @ParamType('int') n: number,
+  ): Promise<number> { return Ret(n) }
 
 }
 
-export { WeComSidecar }
+export { DllSidecar }

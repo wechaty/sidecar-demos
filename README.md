@@ -14,8 +14,9 @@ A sidecar can intercepting function calls or messages or events passed between y
 We are using different branches for different sidecar target application demos:
 
 - [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
+- [.so Sidecar](https://github.com/wechaty/sidecar-demos/tree/so-linux-x64-library)
+- [.dll Sidecar (WIP)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
 - WeCom Sidecar (TBA)
-- [.so Sidecar (WIP)](https://github.com/wechaty/sidecar-demos/tree/so-linux-x64-library)
 
 ## Requirements
 
@@ -49,21 +50,25 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ## History
 
-### master
+### master (v0.4)
 
-### 0.3 (Jul 17, 2021)
+### v0.4 (Juil 19, 2021)
+
+1. [.dll Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
+
+### v0.3 (Jul 17, 2021)
 
 1. [.so Sidecar](https://github.com/wechaty/sidecar-demos/tree/so-linux-x64-library)
 
-### 0.2 (Jun 14, 2021)
+### v0.2 (Jun 14, 2021)
 
 1. [WeCom Sidecar 3.1.6.3605](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.1.6.3605)
 
-### 0.1 (Jun 13, 2021)
+### v0.1 (Jun 13, 2021)
 
 1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 
-### 0.0.1 (Jun 12, 2021)
+### v0.0.1 (Jun 12, 2021)
 
 1. First release
 1. Powered by [Sidecar](https://github.com/huan/sidecar)
