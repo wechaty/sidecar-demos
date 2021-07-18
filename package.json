@@ -1,6 +1,6 @@
 {
   "name": "sidecar-demos",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "IM Sidecar Demos",
   "main": "index.js",
   "scripts": {
