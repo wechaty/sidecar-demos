@@ -32,7 +32,7 @@ import path from 'path'
  * Factorial Library
  *  See: https://github.com/huan/ffi-adapter/tree/master/tests/fixtures/library
  */
-const dllFile = 'factorial-x64.dll'
+const dllFile = 'libfactorial-x64.dll'
 const dllPath = path.join(
   __dirname,
   dllFile,
