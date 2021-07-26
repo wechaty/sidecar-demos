@@ -21,36 +21,21 @@ import {
   detach,
 }           from 'frida-sidecar'
 
-import { WeComSidecar } from './wecom-sidecar'
+import { MessageBoxSidecar } from './message-box-sidecar'
 
 async function main () {
-  console.log('WeChat Sidecar starting...')
+  console.log('MessageBox Sidecar starting...')
 
-  const sidecar = new WeComSidecar()
+  const sidecar = new MessageBoxSidecar()
   await attach(sidecar)
 
-  console.log('WeChat Sidecar started.')
+  console.log('MessageBox Sidecar started.')
+  await sidecar.messageBox(null, 'Content: 提示框内容', 'Title: 标题', 1)
 
-  sidecar.on('recvMsg', async args => {
-    if (args instanceof Error) {
-      console.error(args)
-      return
-    }
-    console.log('recvMsg args:', args)
-    const talkerId  = args[0] as string
-    const text      = args[1] as string
-
-    /**
-     * The world's famous ding-dong bot.
-     */
-    if (talkerId && text === 'ding') {
-      await sidecar.sendMsg()
-      // talkerId, 'dong'
-    }
-
-  })
-
-  const clean = () => detach(sidecar)
+  const clean = async () => {
+    console.log('Sidecar detaching...')
+    await detach(sidecar)
+  }
 
   process.on('SIGINT',  clean)
   process.on('SIGTERM', clean)
