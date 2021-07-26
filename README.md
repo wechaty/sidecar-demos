@@ -6,6 +6,7 @@ Wechaty community sidecar demos.
 [![Sidecar Lib Factorial Linux x64 Library](https://img.shields.io/badge/Sidecar-Linux%20.so%20(x64)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/factorial-linux-x64-library)
 [![Sidecar Lib Factorial Windows x86 DLL](https://img.shields.io/badge/Sidecar-Windows%20DLL%20(x86)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 [![Sidecar Lib Factorial Windows x64 DLL](https://img.shields.io/badge/Sidecar-Windows%20DLL%20(x64)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
+[![Sidecar User32.DLL Windows MessageBox](https://img.shields.io/badge/Sidecar-MessageBox%20USER32.DLL-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
 
 [![Powered by Sidecar](https://img.shields.io/badge/Powered%20By-Sidecar-red.svg)](https://github.com/huan/sidecar)
 
@@ -53,7 +54,11 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ## History
 
-### master v0.6
+### master v0.7
+
+### v0.6 (Jul 27, 2021)
+
+1. [USER32.DLL MessageBox Sidecar](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
 
 ### v0.5 (Jul 19, 2021)
 
