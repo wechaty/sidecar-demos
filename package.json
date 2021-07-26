@@ -7,7 +7,7 @@
     "lint": "npm run lint:es && npm run lint:ts",
     "lint:ts": "tsc --noEmit",
     "lint:es": "eslint --ignore-pattern fixtures/ \"src/**/*.ts\"",
-    "start": "NODE_OPTIONS='--unhandled-rejections=strict' ts-node src/main.ts",
+    "start": "cross-env NODE_OPTIONS='--unhandled-rejections=strict' ts-node src/main.ts",
     "test": "echo test"
   },
   "repository": {
