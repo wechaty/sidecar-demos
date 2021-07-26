@@ -28,6 +28,7 @@ async function main () {
 
   const sidecar = new MessageBoxSidecar()
   await attach(sidecar)
+  await new Promise(resolve => setTimeout(resolve, 100))
 
   console.log('MessageBox Sidecar started.')
   const ret = await sidecar.messageBox(null, 'Content: 提示框内容', 'Title: 标题', 1)
