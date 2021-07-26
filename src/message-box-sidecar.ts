@@ -39,7 +39,7 @@ class MessageBoxSidecar extends SidecarBody {
       UINT    uType
     );
  */
-  @Call(exportTarget('MessagreBoxW', 'user32.dll'))
+  @Call(exportTarget('MessageBoxW', 'user32.dll'))
   @RetType('int')
   messageBox (
     @ParamType('pointer',)                hWnd:     null,

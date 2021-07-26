@@ -30,15 +30,11 @@ async function main () {
   await attach(sidecar)
 
   console.log('MessageBox Sidecar started.')
-  await sidecar.messageBox(null, 'Content: 提示框内容', 'Title: 标题', 1)
+  const ret = await sidecar.messageBox(null, 'Content: 提示框内容', 'Title: 标题', 1)
+  console.log('MessageBox Ret:', ret)
 
-  const clean = async () => {
-    console.log('Sidecar detaching...')
-    await detach(sidecar)
-  }
-
-  process.on('SIGINT',  clean)
-  process.on('SIGTERM', clean)
+  console.log('Sidecar detaching...')
+  await detach(sidecar)
 }
 
 main()
