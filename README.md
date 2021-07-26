@@ -53,7 +53,11 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ## History
 
-### master v0.6
+### master
+
+### v0.6 (Jul 27, 2021)
+
+1. [USER32.DLL MessageBox Sidecar](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
 
 ### v0.5 (Jul 19, 2021)
 
