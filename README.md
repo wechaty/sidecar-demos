@@ -20,6 +20,7 @@ We are using different branches for different sidecar target application demos:
 - [.so(x64) Sidecar for Linux](https://github.com/wechaty/sidecar-demos/tree/so-linux-x64-library)
 - [DLL(x86) Sidecar for Windows](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 - [DLL(x64) Sidecar for Windows](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
+- [USER32.DLL MessageBox Sidecar](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
 - WeCom Sidecar (TBA)
 
 ## Requirements
