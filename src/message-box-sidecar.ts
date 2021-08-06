@@ -24,7 +24,7 @@ import {
   RetType,
   Sidecar,
   SidecarBody,
-}                         from 'frida-sidecar'
+}                         from 'sidecar'
 
 @Sidecar(['c:\\windows\\system32\\notepad.exe'])
 class MessageBoxSidecar extends SidecarBody {
