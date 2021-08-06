@@ -4,7 +4,20 @@
  *
  * Installer: http://dldir1.qq.com/wework/work_weixin/WeCom_3.1.6.3605.exe
  */
- const moduleBaseAddress = Module.getBaseAddress('WXWork.exe')
+const moduleBaseAddress = Module.getBaseAddress('WXWork.exe')
+
+/**
+ * Huan(202107)
+ *  std::string memory read: size LSB (=1) indicates if it's a long string
+ *
+ * https://github.com/iddoeldor/frida-snippets#load-cpp-module
+ */
+function readStdString(str) {
+  if ((str.readU8() & 1) === 1) { // size LSB (=1) indicates if it's a long string
+    return str.add(2 * Process.pointerSize).readPointer().readUtf8String();
+  }
+  return str.add(1).readUtf8String()
+}
 
  /**
   * @Hook: recvMsg -> recvMsgNativeCallback
@@ -30,6 +43,7 @@ const recvMsgNativeCallback = (() => {
         console.log('beforeDecrypt:', beforeDecrypt)
         console.log('afterDecryptInfo:', afterDecryptInfo)
         console.log('pbData', pbData)
+        console.log('pbData Str', readStdStr(pbData).toString(16))
         console.log('pkgSeq:', pkgSeq)
         console.log('pkgId:', pkgId)
 
