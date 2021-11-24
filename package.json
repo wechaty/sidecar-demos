@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/huan/wechat-sidecar#readme",
   "dependencies": {
+    "gerror": "^1.0.14",
     "sidecar": "^1.0.17"
   },
   "git": {

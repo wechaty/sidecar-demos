@@ -20,6 +20,7 @@ import {
   attach,
   detach,
 }           from 'sidecar'
+import { wrapAsyncError } from 'gerror'
 
 import { WeComSidecar } from './wecom-sidecar.js'
 
@@ -50,7 +51,7 @@ async function main () {
 
   })
 
-  const clean = () => detach(sidecar)
+  const clean = wrapAsyncError(console.error)(() => detach(sidecar))
 
   process.on('SIGINT',  clean)
   process.on('SIGTERM', clean)
