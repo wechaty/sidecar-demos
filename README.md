@@ -76,6 +76,8 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ### 0.2 (Jun 14, 2021) [![Sidecar WeCom Win32 X86](https://img.shields.io/badge/Sidecar-WeCom%20Win32%20(x86)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wecom-win32-x86)
 
+WIP: Under construction, not workable.
+
 1. [WeCom Sidecar Win32 X86](https://github.com/wechaty/sidecar-demos/tree/wecom-win32-x86)
 
 ### 0.1 (Jun 13, 2021) [![Sidecar WeChat Win32 X86 3.2.1.121](https://img.shields.io/badge/Sidecar-WeChat%203.2.1.121-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
