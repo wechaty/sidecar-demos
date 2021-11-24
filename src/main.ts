@@ -21,7 +21,7 @@ import {
   detach,
 }           from 'sidecar'
 
-import { WeComSidecar } from './wecom-sidecar'
+import { WeComSidecar } from './wecom-sidecar.js'
 
 async function main () {
   console.log('WeChat Sidecar starting...')

@@ -31,7 +31,7 @@ import {
 import fs from 'fs'
 
 const initAgentScript = fs.readFileSync(require.resolve(
-  './init-agent-script.js'
+  './init-agent-script.js',
 )).toString()
 
 @Sidecar('WXWork.exe', initAgentScript)
