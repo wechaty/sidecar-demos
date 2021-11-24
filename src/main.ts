@@ -31,14 +31,14 @@ async function main () {
 
   console.log('WeChat Sidecar started.')
 
-  sidecar.on('recvMsg', async args => {
-    if (args instanceof Error) {
-      console.error(args)
+  sidecar.on('hook', async payload => {
+    if (payload instanceof Error) {
+      console.error(payload)
       return
     }
-    console.log('recvMsg args:', args)
-    const talkerId  = args[0] as string
-    const text      = args[1] as string
+    console.log('method:', payload.method, ' args:', payload.args)
+    const talkerId  = payload.args[0] as string
+    const text      = payload.args[1] as string
 
     /**
      * The world's famous ding-dong bot.
