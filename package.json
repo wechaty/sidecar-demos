@@ -1,6 +1,6 @@
 {
   "name": "sidecar-demos",
-  "version": "0.7.4",
+  "version": "0.2.0",
   "description": "IM Sidecar Demos",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/huan/wechat-sidecar#readme",
   "dependencies": {
-    "sidecar": "^0.13"
+    "sidecar": "^0.14"
   },
   "git": {
     "scripts": {
@@ -34,9 +34,9 @@
     }
   },
   "devDependencies": {
-    "@chatie/eslint-config": "^0.12.4",
+    "@chatie/eslint-config": "^1.0.4",
     "@chatie/git-scripts": "^0.6.2",
-    "@chatie/tsconfig": "^0.16.2",
+    "@chatie/tsconfig": "^4.5.3",
     "cross-env": "^7.0.3"
   }
 }

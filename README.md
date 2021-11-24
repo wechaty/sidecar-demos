@@ -7,6 +7,7 @@ Wechaty community sidecar demos.
 [![Sidecar Lib Factorial Windows x86 DLL](https://img.shields.io/badge/Sidecar-Windows%20DLL%20(x86)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 [![Sidecar Lib Factorial Windows x64 DLL](https://img.shields.io/badge/Sidecar-Windows%20DLL%20(x64)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
 [![Sidecar User32.DLL Windows MessageBox](https://img.shields.io/badge/Sidecar-MessageBox%20USER32.DLL-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
+[![Sidecar WeCom Win32 X86](https://img.shields.io/badge/Sidecar-WeCom%20Win32%20(x86)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wecom-win32-x86)
 
 [![Powered by Sidecar](https://img.shields.io/badge/Powered%20By-Sidecar-red.svg)](https://github.com/huan/sidecar)
 
@@ -57,27 +58,27 @@ Then your account will be able to reply `dong` automatically when receives a mes
 
 ### master v0.7
 
-### v0.6 (Jul 27, 2021)
+### v0.6 (Jul 27, 2021) [![Sidecar User32.DLL Windows MessageBox](https://img.shields.io/badge/Sidecar-MessageBox%20USER32.DLL-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
 
 1. [USER32.DLL MessageBox Sidecar](https://github.com/wechaty/sidecar-demos/tree/user32-dll-win32-message-box)
 
-### v0.5 (Jul 19, 2021)
+### v0.5 (Jul 19, 2021) [![Sidecar Lib Factorial Windows x86 DLL](https://img.shields.io/badge/Sidecar-Windows%20DLL%20(x86)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 
 1. [Windows DLL(x86) Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x86-library)
 
-### v0.4 (Jul 18, 2021)
+### v0.4 (Jul 18, 2021) [![Sidecar Lib Factorial Windows x64 DLL](https://img.shields.io/badge/Sidecar-Windows%20DLL%20(x64)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
 
 1. [Windows DLL(x64) Sidecar](https://github.com/wechaty/sidecar-demos/tree/dll-windows-x64-library)
 
-### 0.3 (Jul 17, 2021)
+### 0.3 (Jul 17, 2021) [![Sidecar Lib Factorial Linux x64 Library](https://img.shields.io/badge/Sidecar-Linux%20.so%20(x64)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/factorial-linux-x64-library)
 
 1. [Linux .so Sidecar](https://github.com/wechaty/sidecar-demos/tree/so-linux-x64-library)
 
-### 0.2 (Jun 14, 2021)
+### 0.2 (Jun 14, 2021) [![Sidecar WeCom Win32 X86](https://img.shields.io/badge/Sidecar-WeCom%20Win32%20(x86)-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wecom-win32-x86)
 
-1. [WeCom Sidecar 3.1.6.3605](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.1.6.3605)
+1. [WeCom Sidecar Win32 X86](https://github.com/wechaty/sidecar-demos/tree/wecom-win32-x86)
 
-### 0.1 (Jun 13, 2021)
+### 0.1 (Jun 13, 2021) [![Sidecar WeChat Win32 X86 3.2.1.121](https://img.shields.io/badge/Sidecar-WeChat%203.2.1.121-brightgreen)](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 
 1. [WeChat Sidecar 3.2.1.121](https://github.com/wechaty/sidecar-demos/tree/wechat-win32-x86-3.2.1.121)
 
